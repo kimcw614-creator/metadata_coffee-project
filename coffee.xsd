@@ -1,0 +1,191 @@
+<!--메타데이터론 김채완 Draft 4 XSD-->
+
+<xs:schema
+xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns="http://example.org/coffee"
+xmlns:coffee="http://example.org/coffee"
+xmlns:dc="http://purl.org/dc/elements/1.1/"
+targetNamespace="http://example.org/coffee"
+elementFormDefault="qualified">
+
+<!-- DC import -->
+<xs:import 
+    namespace="http://purl.org/dc/elements/1.1/"
+    schemaLocation="http://dublincore.org/schemas/xmls/simpledc20021212.xsd"/>
+
+<!-- Root Element -->
+ <!-- Collection -->
+ <xs:element name="collection">
+    <xs:annotation>
+        <xs:documentation>
+            A container for multiple coffee beverage records.
+        </xs:documentation>
+    </xs:annotation>
+ </xs:element>
+
+<!-- 각 커피 음료 하나의 레코드-->
+<xs:element name="coffeeRecord">
+    <xs:annotation>
+        <xs:documentation>
+        A record describing a coffee beverage with sensory, origin, and preparation metadata.
+        </xs:documentation>
+    </xs:annotation>
+
+    <xs:complexType>
+        <xs:sequence>
+
+            <!-- 제목 (필수, 1회) -->
+            <xs:element ref="dc:title"/>
+
+            <!-- beverageType (필수) -->
+            <xs:element name="beverageType" type="coffee:beverageTypeType"/>
+
+            <!-- brewMethod (필수) -->
+            <xs:element name="brewMethod" type="coffee:brewMethodType"/>
+
+            <!-- beanOrigin (선택, 반복 가능) -->
+            <xs:element name="beanOrigin" type="coffee:beanOriginType" minOccurs="0" maxOccurs="unbounded"/>
+
+            <!-- roastLevel (선택) -->
+            <xs:element name="roastLevel" type="coffee:roastLevelType" minOccurs="0"/>
+
+            <!-- flavorProfile (필수, 반복 가능) -->
+            <xs:element name="flavorProfile" type="coffee:flavorProfileType" maxOccurs="unbounded"/>
+
+            <!-- acidityLevel (선택) -->
+            <xs:element name="acidityLevel" type="coffee:acidityLevelType" minOccurs="0"/>
+
+            <!-- caffeineContent (필수) -->
+            <xs:element name="caffeineContent" type="coffee:caffeineType"/>
+
+            <!-- milkBase (선택) -->
+            <xs:element name="milkBase" type="coffee:milkBaseType" minOccurs="0"/>
+
+            <!-- sweetenerFlavor (선택, 반복 가능) -->
+            <xs:element name="sweetenerFlavor" type="coffee:sweetenerType" minOccurs="0" maxOccurs="unbounded"/>
+
+            <!-- servingFormat (필수) -->
+            <xs:element name="servingFormat" type="coffee:servingFormatType"/>
+
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<!-- Controlled Vocabularies -->
+<!-- beverageType -->
+<xs:simpleType name="beverageTypeType">
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="espresso-based"/>
+        <xs:enumeration value="brewed coffee"/>
+        <xs:enumeration value="cold brew"/>
+        <xs:enumeration value="ready-to-drink"/>
+        <xs:enumeration value="flavored beverage"/>
+    </xs:restriction>
+</xs:simpleType>
+
+<!-- brewMethod -->
+<xs:simpleType name="brewMethodType">
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="espresso"/>
+        <xs:enumeration value="pour-over"/>
+        <xs:enumeration value="drip machine"/>
+        <xs:enumeration value="French press"/>
+        <xs:enumeration value="cold brew"/>
+    </xs:restriction>
+</xs:simpleType>
+
+<!-- beanOrigin -->
+<xs:complexType name="beanOriginType">
+        <xs:annotation>
+            <xs:documentation>
+            Structured origin information of the coffee beans.
+            Includes country, region, and optional farm name.
+            </xs:documentation>
+        </xs:annotation>
+
+     <xs:sequence>
+        <!-- 필수 -->
+        <xs:element name="country" type="xs:string"/>
+
+        <!-- 선택 -->
+        <xs:element name="region" type="xs:string" minOccurs="0"/>
+        <xs:element name="farm" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+</xs:complexType>
+
+<!-- roastLevel -->
+<xs:simpleType name="roastLevelType">
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="light"/>
+        <xs:enumeration value="medium"/>
+        <xs:enumeration value="dark"/>
+    </xs:restriction>
+</xs:simpleType>
+
+<!-- flavorProfile -->
+<xs:simpleType name="flavorProfileType">
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="fruity"/>
+        <xs:enumeration value="nutty"/>
+        <xs:enumeration value="chocolatey"/>
+        <xs:enumeration value="floral"/>
+        <xs:enumeration value="smoky"/>
+        <xs:enumeration value="citrus"/>
+        <xs:enumeration value="caramel"/>
+        <xs:enumeration value="spicy"/>
+        <xs:enumeration value="sweet"/>
+    </xs:restriction>
+</xs:simpleType>
+
+<!-- acidityLevel -->
+<xs:simpleType name="acidityLevelType">
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="low"/>
+        <xs:enumeration value="medium"/>
+        <xs:enumeration value="high"/>
+    </xs:restriction>
+</xs:simpleType>
+
+<!-- caffeineContent -->
+<xs:simpleType name="caffeineType">
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="caffeinated"/>
+        <xs:enumeration value="decaffeinated"/>
+    </xs:restriction>
+</xs:simpleType>
+
+<!-- milkBase -->
+<xs:simpleType name="milkBaseType">
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="none"/>
+        <xs:enumeration value="dairy milk"/>
+        <xs:enumeration value="oat milk"/>
+        <xs:enumeration value="soy milk"/>
+        <xs:enumeration value="almond milk"/>
+    </xs:restriction>
+</xs:simpleType>
+
+<!-- sweetenerFlavor -->
+<xs:simpleType name="sweetenerType">
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="none"/>
+        <xs:enumeration value="sugar"/>
+        <xs:enumeration value="vanilla"/>
+        <xs:enumeration value="caramel"/>
+        <xs:enumeration value="hazelnut"/>
+        <xs:enumeration value="mocha"/>
+    </xs:restriction>
+</xs:simpleType>
+
+<!-- servingFormat -->
+<xs:simpleType name="servingFormatType">
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="hot"/>
+        <xs:enumeration value="iced"/>
+        <xs:enumeration value="bottled"/>
+        <xs:enumeration value="canned"/>
+        <xs:enumeration value="takeaway"/>
+    </xs:restriction>
+</xs:simpleType>
+
+</xs:schema>
