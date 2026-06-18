@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<coffee:collection
+xmlns="http://example.org/coffee"
+xmlns:coffee="http://example.org/coffee"
+xmlns:dc="http://purl.org/dc/elements/1.1/"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://example.org/coffee coffee.xsd">
+
+<!--예가체프 드립커피 레코드 예시-->
+<coffee:coffeeRecord>
+    <dc:title>Ethiopia Yirgacheffe Pour-over</dc:title>
+    <coffee:beverageType>brewed coffee</coffee:beverageType>
+    <coffee:brewMethod>pour-over</coffee:brewMethod>
+    <coffee:beanOrigin>
+        <coffee:country>Etgiopia</coffee:country>
+    </coffee:beanOrigin>
+    <coffee:roastLevel>light</coffee:roastLevel>
+    <coffee:flavorProfile>floral</coffee:flavorProfile>
+    <coffee:flavorProfile>citrus</coffee:flavorProfile>
+    <coffee:acidityLevel>high</coffee:acidityLevel>
+    <coffee:caffeineContent>caffeinated</coffee:caffeineContent>
+    <coffee:milkBase>none</coffee:milkBase>
+    <coffee:sweetenerFlavor>none</coffee:sweetenerFlavor>
+    <coffee:servingFormat>hot</coffee:servingFormat>
+</coffee:coffeeRecord>
+
+<!--RTD 바닐라라떼 레코드 예시-->
+<coffee:coffeeRecord>
+    <dc:title>Bottled Vanilla Latte</dc:title>
+    <coffee:beverageType>ready-to-drink</coffee:beverageType>
+    <coffee:brewMethod>espresso</coffee:brewMethod>
+    <coffee:beanOrigin>
+        <coffee:country>Colombia</coffee:country>
+        <coffee:region>Huila</coffee:region>
+    </coffee:beanOrigin>
+    <coffee:roastLevel>medium</coffee:roastLevel>
+    <coffee:flavorProfile>caramel</coffee:flavorProfile>
+    <coffee:flavorProfile>sweet</coffee:flavorProfile>
+    <coffee:acidityLevel>low</coffee:acidityLevel>
+    <coffee:caffeineContent>caffeinated</coffee:caffeineContent>
+    <coffee:milkBase>dairy milk</coffee:milkBase>
+    <coffee:sweetenerFlavor>vanilla</coffee:sweetenerFlavor>
+    <coffee:servingFormat>bottled</coffee:servingFormat>
+</coffee:coffeeRecord>
+
+</coffee:collection>
