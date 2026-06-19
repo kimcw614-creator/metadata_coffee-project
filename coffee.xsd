@@ -9,7 +9,7 @@ targetNamespace="http://example.org/coffee"
 elementFormDefault="qualified">
 
 <!-- DC import -->
-<xs:import 
+<xs:import
     namespace="http://purl.org/dc/elements/1.1/"
     schemaLocation="http://dublincore.org/schemas/xmls/simpledc20021212.xsd"/>
 
@@ -21,6 +21,11 @@ elementFormDefault="qualified">
             A container for multiple coffee beverage records.
         </xs:documentation>
     </xs:annotation>
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="coffee:coffeeRecord" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
  </xs:element>
 
 <!-- 각 커피 음료 하나의 레코드-->
