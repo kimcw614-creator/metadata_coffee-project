@@ -1,4 +1,4 @@
-<!--메타데이터론 김채완 Draft 4 XSD-->
+<!--메타데이터론 김채완 XSD-->
 
 <xs:schema
 xmlns:xs="http://www.w3.org/2001/XMLSchema"
