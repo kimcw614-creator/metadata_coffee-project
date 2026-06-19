@@ -5,7 +5,7 @@ xmlns="http://example.org/coffee"
 xmlns:coffee="http://example.org/coffee"
 xmlns:dc="http://purl.org/dc/elements/1.1/"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="http://example.org/coffee coffee.xsd">
+xsi:schemaLocation="http://example.org/coffee https://raw.githubusercontent.com/kimcw614-creator/metadata_coffee-project/main/coffee.xsd">
 
 <!--예가체프 드립커피 레코드 예시-->
 <coffee:coffeeRecord>
