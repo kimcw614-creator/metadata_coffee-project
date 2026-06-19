@@ -13,7 +13,7 @@ xsi:schemaLocation="http://example.org/coffee https://raw.githubusercontent.com/
     <coffee:beverageType>brewed coffee</coffee:beverageType>
     <coffee:brewMethod>pour-over</coffee:brewMethod>
     <coffee:beanOrigin>
-        <coffee:country>Etgiopia</coffee:country>
+        <coffee:country>Ethiopia</coffee:country>
     </coffee:beanOrigin>
     <coffee:roastLevel>light</coffee:roastLevel>
     <coffee:flavorProfile>floral</coffee:flavorProfile>
